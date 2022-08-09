@@ -1,0 +1,109 @@
+basePath: /api/v1
+definitions:
+  controller.article:
+    properties:
+      authors:
+        type: string
+      date:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is sample server.
+  title: Go Gin Swagger Rest API service demo
+  version: "1.0"
+paths:
+  /article/create:
+    post:
+      consumes:
+      - application/json
+      description: Create Article detail using POST request
+      parameters:
+      - description: The body to create a article
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.article'
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+        "400":
+          description: error
+          schema:
+            type: string
+        "404":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Creates a article
+      tags:
+      - Articles
+  /article/detail/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get all articles
+      parameters:
+      - description: Article ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+        "400":
+          description: error
+          schema:
+            type: string
+        "404":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Fetch all article
+      tags:
+      - Articles
+  /article/list:
+    get:
+      consumes:
+      - application/json
+      description: Get all articles
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+        "400":
+          description: error
+          schema:
+            type: string
+        "404":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Fetch all article
+      tags:
+      - Articles
+swagger: "2.0"
